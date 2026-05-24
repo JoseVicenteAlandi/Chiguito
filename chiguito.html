@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHIGUITO | Cocina Asiática · Picassent, Valencia</title>
+<meta name="description" content="Restaurante de cocina asiática en Picassent, Valencia. Sushi fresco, ramen auténtico, yakisoba, gyozas y mucho más. Av. d'Aureli Guaita Martorell, 13. Reservas y pedidos a domicilio.">
+<meta name="keywords" content="restaurante asiático Picassent, sushi Picassent, ramen Picassent, chiguito picassent, cocina japonesa Valencia, restaurante japonés Picassent">
+<meta property="og:title" content="CHIGUITO | Cocina Asiática · Picassent">
+<meta property="og:description" content="Sushi fresco, ramen auténtico y cocina asiática de calidad en el corazón de Picassent, Valencia.">
+<meta property="og:type" content="restaurant">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0a0a0a;
+  --red: #c0141a;
+  --red-dark: #8b0d12;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --white: #f5f0ea;
+  --white-pure: #ffffff;
+  --gray: #888;
+  --gray-light: #d0ccc5;
+  --section-bg: #111111;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  transition: all 0.4s ease;
+  background: transparent;
+}
+nav.scrolled {
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(10px);
+  padding: 14px 5%;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+.nav-logo {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--red); }
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  font-weight: 400;
+}
+.nav-links a:hover { color: var(--gold); }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 26px;
+  height: 1.5px;
+  background: var(--gold);
+  transition: all 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10,10,10,0.98);
+  z-index: 999;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1.4rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 300;
+  transition: color 0.3s;
+}
+.mobile-menu a:hover { color: var(--gold); }
+
+/* ─── HERO ─── */
+#hero {
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(192,20,26,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(201,168,76,0.07) 0%, transparent 60%);
+}
+.hero-kanji {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(8rem, 20vw, 18rem);
+  font-weight: 700;
+  color: rgba(201,168,76,0.06);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  user-select: none;
+  animation: fadeInRight 1.5s ease forwards;
+}
+.hero-line {
+  position: absolute;
+  left: 5%;
+  bottom: 15%;
+  width: 35%;
+  height: 1px;
+  background: linear-gradient(to right, var(--red), transparent);
+  animation: expandWidth 1.5s ease 0.5s forwards;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.hero-content {
+  text-align: center;
+  z-index: 1;
+  padding: 0 20px;
+  animation: fadeInUp 1.2s ease forwards;
+}
+.hero-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.5em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+.hero-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(3.5rem, 12vw, 9rem);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  line-height: 0.9;
+  color: var(--white-pure);
+  margin-bottom: 0.3em;
+}
+.hero-title .red { color: var(--red); }
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  color: var(--gold-light);
+  letter-spacing: 0.1em;
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+.hero-cta {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  background: var(--red);
+  color: var(--white-pure);
+  border: none;
+  padding: 14px 36px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: translateX(-101%);
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+.btn-primary:hover { color: var(--black); }
+.btn-primary:hover::after { transform: translateX(0); }
+.btn-outline {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.4);
+  padding: 14px 36px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s;
+}
+.btn-outline:hover {
+  background: rgba(201,168,76,0.1);
+  border-color: var(--gold);
+}
+.scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.4;
+  animation: bounce 2s infinite;
+}
+.scroll-hint span {
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+.scroll-hint::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: var(--gold);
+}
+
+/* ─── STRIP BANNER ─── */
+.strip {
+  background: var(--red);
+  padding: 14px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.strip-inner {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
+.strip span {
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  margin: 0 3rem;
+}
+.strip span.dot {
+  color: var(--gold-light);
+  margin: 0;
+  letter-spacing: 0;
+}
+
+/* ─── SECTIONS ─── */
+section { padding: 100px 5%; }
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.section-tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.5em;
+  color: var(--red);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--white-pure);
+  margin-bottom: 1rem;
+}
+.section-title em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold);
+}
+.section-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(to right, var(--red), var(--gold));
+  margin: 0 auto;
+}
+
+/* ─── INFO BANNER ─── */
+#info-banner {
+  background: var(--section-bg);
+  padding: 0;
+}
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid rgba(201,168,76,0.15);
+}
+.info-cell {
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+  border-right: 1px solid rgba(201,168,76,0.15);
+  transition: background 0.3s;
+}
+.info-cell:last-child { border-right: none; }
+.info-cell:hover { background: rgba(201,168,76,0.04); }
+.info-icon {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+.info-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  color: var(--red);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+.info-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  line-height: 1.7;
+}
+
+/* ─── ABOUT ─── */
+#about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  padding: 120px 7%;
+  background: var(--black);
+}
+.about-visual {
+  position: relative;
+}
+.about-box {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: var(--section-bg);
+  border: 1px solid rgba(201,168,76,0.2);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-box::before {
+  content: '食';
+  font-family: 'Noto Serif JP', serif;
+  font-size: 12rem;
+  font-weight: 700;
+  color: rgba(201,168,76,0.05);
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.about-kanji-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+.about-kanji-stack .k {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 3rem;
+  font-weight: 300;
+  color: rgba(201,168,76,0.6);
+  letter-spacing: 0.1em;
+}
+.about-badge {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background: var(--red);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--black);
+}
+.about-badge .stars { color: var(--gold); font-size: 0.7rem; letter-spacing: 0.1em; }
+.about-badge .rating { font-family: 'Noto Serif JP', serif; font-size: 1.5rem; color: var(--white-pure); }
+.about-badge .reviews { font-size: 0.55rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.7); }
+.about-text .label {
+  font-size: 0.65rem;
+  letter-spacing: 0.5em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  display: block;
+}
+.about-text h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.25;
+  margin-bottom: 1.5rem;
+  color: var(--white-pure);
+}
+.about-text h2 em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--red);
+}
+.about-text p {
+  line-height: 1.9;
+  color: var(--gray);
+  font-size: 0.92rem;
+  margin-bottom: 1.2rem;
+}
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 2rem;
+}
+.tag {
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 6px 18px;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ─── MENU ─── */
+#menu { background: var(--section-bg); }
+.menu-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-bottom: 4rem;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+.menu-tab {
+  background: none;
+  border: none;
+  color: var(--gray);
+  padding: 14px 24px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-right: 1px solid rgba(201,168,76,0.1);
+  white-space: nowrap;
+}
+.menu-tab:last-child { border-right: none; }
+.menu-tab:hover { color: var(--gold); background: rgba(201,168,76,0.04); }
+.menu-tab.active { background: var(--red); color: var(--white-pure); }
+
+.menu-panel { display: none; }
+.menu-panel.active { display: block; }
+
+.menu-intro {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.menu-intro p {
+  color: var(--gray);
+  font-size: 0.88rem;
+  line-height: 1.8;
+  max-width: 500px;
+  margin: 0.5rem auto 0;
+}
+.menu-intro .cat-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1px;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.1);
+}
+.menu-item {
+  background: var(--section-bg);
+  padding: 1.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: background 0.3s;
+  position: relative;
+}
+.menu-item:hover { background: rgba(201,168,76,0.04); }
+.menu-item-left { flex: 1; }
+.menu-item-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  color: var(--white-pure);
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+.menu-item-desc {
+  font-size: 0.78rem;
+  color: var(--gray);
+  line-height: 1.6;
+}
+.menu-item-price {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.badge-real {
+  display: inline-block;
+  background: rgba(192,20,26,0.2);
+  border: 1px solid rgba(192,20,26,0.4);
+  color: var(--red);
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.badge-est {
+  display: inline-block;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold);
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.menu-legend {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(201,168,76,0.1);
+}
+.menu-legend span {
+  font-size: 0.7rem;
+  color: var(--gray);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ─── ESPECIALIDADES ─── */
+#specials {
+  background: var(--black);
+  padding: 120px 5%;
+}
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 4rem;
+  background: rgba(201,168,76,0.08);
+}
+.special-card {
+  background: var(--black);
+  padding: 3rem 2.5rem;
+  text-align: center;
+  transition: background 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+.special-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--red), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+.special-card:hover::before { transform: scaleX(1); }
+.special-card:hover { background: rgba(201,168,76,0.03); }
+.special-emoji {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1.5rem;
+  filter: grayscale(0.3);
+}
+.special-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--white-pure);
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+.special-desc {
+  font-size: 0.82rem;
+  color: var(--gray);
+  line-height: 1.8;
+}
+
+/* ─── HORARIO / CONTACTO ─── */
+#contacto {
+  background: var(--section-bg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.contact-col {
+  padding: 100px 8%;
+}
+.contact-col:first-child {
+  border-right: 1px solid rgba(201,168,76,0.15);
+}
+.contact-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  color: var(--red);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 2rem;
+}
+.contact-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--white-pure);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.1em;
+}
+.hours-table { width: 100%; }
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.85rem;
+}
+.hours-row:last-child { border-bottom: none; }
+.hours-day { color: var(--gray); letter-spacing: 0.05em; }
+.hours-time { color: var(--gold-light); font-family: 'Cormorant Garamond', serif; font-size: 1rem; }
+.hours-closed { color: rgba(192,20,26,0.7); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+.contact-info { display: flex; flex-direction: column; gap: 1.8rem; }
+.contact-item {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+.contact-item-icon {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(201,168,76,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+  color: var(--gold);
+}
+.contact-item-text small {
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.contact-item-text a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+.contact-item-text a:hover { color: var(--gold); }
+.contact-item-text p { font-size: 0.88rem; color: var(--gray-light); line-height: 1.6; }
+
+/* ─── WHATSAPP ─── */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  background: #25d366;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: pulse-wa 3s infinite;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(37,211,102,0.6);
+  animation: none;
+}
+.whatsapp-float svg { width: 30px; height: 30px; fill: white; }
+
+/* ─── INSTAGRAM ─── */
+#instagram {
+  background: var(--black);
+  padding: 100px 5%;
+  text-align: center;
+}
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  margin: 3rem 0;
+}
+.ig-placeholder {
+  aspect-ratio: 1;
+  background: var(--section-bg);
+  border: 1px solid rgba(201,168,76,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.ig-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(192,20,26,0.3), rgba(201,168,76,0.2));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.ig-placeholder:hover::before { opacity: 1; }
+.ig-placeholder .k {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2.5rem;
+  color: rgba(201,168,76,0.2);
+}
+.ig-placeholder small {
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  color: var(--gray);
+  text-transform: uppercase;
+}
+.ig-follow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  color: white;
+  text-decoration: none;
+  padding: 14px 36px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  transition: opacity 0.3s;
+}
+.ig-follow-btn:hover { opacity: 0.85; }
+
+/* ─── SEO ─── */
+#seo {
+  background: rgba(192,20,26,0.06);
+  border-top: 1px solid rgba(192,20,26,0.2);
+  border-bottom: 1px solid rgba(192,20,26,0.2);
+  padding: 60px 5%;
+  text-align: center;
+}
+#seo p {
+  font-size: 0.82rem;
+  color: var(--gray);
+  max-width: 700px;
+  margin: 0.5rem auto;
+  line-height: 1.7;
+}
+#seo strong { color: var(--gold-light); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: #050505;
+  padding: 60px 5% 30px;
+  border-top: 1px solid rgba(201,168,76,0.1);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  margin-bottom: 2rem;
+}
+.footer-brand .logo {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 1rem;
+}
+.footer-brand .logo span { color: var(--red); }
+.footer-brand p {
+  font-size: 0.8rem;
+  color: var(--gray);
+  line-height: 1.8;
+  max-width: 280px;
+}
+.footer-col h4 {
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 0.7rem; }
+.footer-col a {
+  color: var(--gray);
+  text-decoration: none;
+  font-size: 0.82rem;
+  transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.2);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-bottom a { color: rgba(255,255,255,0.3); text-decoration: none; }
+
+/* ─── NOTE ─── */
+.data-note {
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 2rem;
+  font-size: 0.78rem;
+  color: var(--gray);
+  line-height: 1.7;
+}
+.data-note strong { color: var(--gold); }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateY(-50%) translateX(30px); }
+  to { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+@keyframes expandWidth {
+  to { transform: scaleX(1); }
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+@keyframes pulse-wa {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+  50% { box-shadow: 0 4px 40px rgba(37,211,102,0.7), 0 0 0 10px rgba(37,211,102,0.1); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  #about {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 80px 6%;
+  }
+  .about-box { aspect-ratio: 16/9; }
+
+  .info-grid { grid-template-columns: 1fr; }
+  .info-cell { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.15); }
+  .info-cell:last-child { border-bottom: none; }
+
+  .specials-grid { grid-template-columns: 1fr; gap: 1px; }
+
+  #contacto { grid-template-columns: 1fr; }
+  .contact-col { padding: 60px 6%; }
+  .contact-col:first-child { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.15); }
+
+  .ig-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+  .menu-tabs { overflow-x: auto; justify-content: flex-start; border: none; }
+  .menu-tab { border: 1px solid rgba(201,168,76,0.2); margin: 3px; white-space: nowrap; }
+
+  .menu-grid { grid-template-columns: 1fr; }
+
+  section { padding: 70px 5%; }
+}
+
+@media (max-width: 500px) {
+  .hero-title { letter-spacing: 0.05em; }
+  .hero-kanji { display: none; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">CHIG<span>U</span>ITO</a>
+  <ul class="nav-links">
+    <li><a href="#about">Nosotros</a></li>
+    <li><a href="#menu">Carta</a></li>
+    <li><a href="#specials">Especialidades</a></li>
+    <li><a href="#contacto">Horario</a></li>
+    <li><a href="#instagram">Instagram</a></li>
+    <li><a href="tel:+34677159860" style="color:var(--gold)">Reservar</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">Nosotros</a>
+  <a href="#menu" onclick="closeMobile()">Carta</a>
+  <a href="#specials" onclick="closeMobile()">Especialidades</a>
+  <a href="#contacto" onclick="closeMobile()">Horario</a>
+  <a href="#instagram" onclick="closeMobile()">Instagram</a>
+  <a href="tel:+34677159860" onclick="closeMobile()" style="color:var(--gold)">Llamar / Reservar</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-kanji">食</div>
+  <div class="hero-line"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Picassent · Valencia · Desde 2020</p>
+    <h1 class="hero-title">CHIGU<span class="red">ITO</span></h1>
+    <p class="hero-subtitle">Cocina Asiática de Autor</p>
+    <div class="hero-cta">
+      <a href="#menu" class="btn-primary">Ver la Carta</a>
+      <a href="tel:+34677159860" class="btn-outline">Reservar Mesa</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Descubrir</span></div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <span>Sushi Fresco</span><span class="dot">·</span>
+    <span>Ramen Auténtico</span><span class="dot">·</span>
+    <span>Yakisoba</span><span class="dot">·</span>
+    <span>Gyozas</span><span class="dot">·</span>
+    <span>Poke Bowl</span><span class="dot">·</span>
+    <span>Don de Pollo</span><span class="dot">·</span>
+    <span>Cocina Vegana</span><span class="dot">·</span>
+    <span>Terraza exterior</span><span class="dot">·</span>
+    <span>Pedidos a domicilio</span><span class="dot">·</span>
+    <!-- repeat for marquee loop -->
+    <span>Sushi Fresco</span><span class="dot">·</span>
+    <span>Ramen Auténtico</span><span class="dot">·</span>
+    <span>Yakisoba</span><span class="dot">·</span>
+    <span>Gyozas</span><span class="dot">·</span>
+    <span>Poke Bowl</span><span class="dot">·</span>
+    <span>Don de Pollo</span><span class="dot">·</span>
+    <span>Cocina Vegana</span><span class="dot">·</span>
+    <span>Terraza exterior</span><span class="dot">·</span>
+    <span>Pedidos a domicilio</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- INFO BANNER -->
+<div id="info-banner">
+  <div class="info-grid">
+    <div class="info-cell reveal">
+      <span class="info-icon">📍</span>
+      <span class="info-label">Ubicación</span>
+      <div class="info-value">Av. d'Aureli Guaita Martorell, 13<br>46220 Picassent, Valencia</div>
+    </div>
+    <div class="info-cell reveal">
+      <span class="info-icon">🕐</span>
+      <span class="info-label">Horario</span>
+      <div class="info-value">Mar–Vie 12:30–16:00 · 19:30–23:00<br>Sáb–Dom 11:30–16:30 · 19:30–23:30</div>
+    </div>
+    <div class="info-cell reveal">
+      <span class="info-icon">📞</span>
+      <span class="info-label">Reservas & Pedidos</span>
+      <div class="info-value"><a href="tel:+34677159860" style="color:var(--gold-light); text-decoration:none">+34 677 159 860</a><br>
+      <a href="https://wa.me/34677159860" target="_blank" style="color:rgba(37,211,102,0.8); text-decoration:none; font-size:0.85rem">WhatsApp disponible</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual reveal">
+    <div class="about-box">
+      <div class="about-kanji-stack">
+        <span class="k">料</span>
+        <span class="k">理</span>
+        <span class="k">屋</span>
+      </div>
+    </div>
+    <div class="about-badge">
+      <span class="stars">★★★★★</span>
+      <span class="rating">4.6</span>
+      <span class="reviews">Google Maps</span>
+    </div>
+  </div>
+  <div class="about-text reveal">
+    <span class="label">Sobre nosotros</span>
+    <h2>Donde Asia se <em>encuentra</em> con Valencia</h2>
+    <p>En el corazón de Picassent, CHIGUITO es mucho más que un restaurante: es una puerta abierta a los sabores más auténticos de Asia. Nuestra cocina combina técnica japonesa con productos frescos de temporada para crear experiencias gastronómicas únicas.</p>
+    <p>Desde el ramen más reconfortante hasta el sushi más creativo, cada plato está preparado con dedicación y respeto por los ingredientes. Nos enorgullece ofrecer opciones veganas y vegetarianas sin comprometer el sabor ni la presentación.</p>
+    <div class="about-tags">
+      <span class="tag">Sushi</span>
+      <span class="tag">Ramen</span>
+      <span class="tag">Yakisoba</span>
+      <span class="tag">Poke Bowl</span>
+      <span class="tag">Terraza</span>
+      <span class="tag">Vegano</span>
+      <span class="tag">Domicilio</span>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="section-header reveal">
+    <span class="section-tag">メニュー · Menú</span>
+    <h2 class="section-title">Nuestra <em>Carta</em></h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="data-note reveal">
+    <strong>⚠️ Nota sobre la información:</strong> Los platos marcados con <span class="badge-real">CONFIRMADO</span> han sido verificados en reseñas reales de clientes. Los marcados con <span class="badge-est">ESTIMADO</span> son propuestas típicas de cocina asiática de este estilo, a modo de ejemplo. Los precios son orientativos basados en el rango €10–20 por persona indicado en Google Maps. <strong>Confirma siempre precios y disponibilidad directamente con el restaurante.</strong>
+  </div>
+
+  <div class="menu-tabs reveal">
+    <button class="menu-tab active" onclick="switchTab(this,'sushi')">🍣 Sushi</button>
+    <button class="menu-tab" onclick="switchTab(this,'entrantes')">🥟 Entrantes</button>
+    <button class="menu-tab" onclick="switchTab(this,'ramen')">🍜 Ramen</button>
+    <button class="menu-tab" onclick="switchTab(this,'wok')">🥢 Wok & Arroces</button>
+    <button class="menu-tab" onclick="switchTab(this,'poke')">🥗 Poke Bowls</button>
+    <button class="menu-tab" onclick="switchTab(this,'bebidas')">🍺 Bebidas</button>
+    <button class="menu-tab" onclick="switchTab(this,'postres')">🍡 Postres</button>
+  </div>
+
+  <!-- SUSHI -->
+  <div class="menu-panel active" id="panel-sushi">
+    <div class="menu-intro">
+      <p class="cat-title">Sushi</p>
+      <p>Piezas elaboradas al momento con pescado fresco. Rolls creativos, nigiris y uramakis para todos los gustos.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Sushi Variado<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Selección del chef con piezas frescas del día. Salmón, atún y especiales de la casa</div>
+        </div>
+        <div class="menu-item-price">~12€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Uramaki Salmón<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">8 piezas de arroz por fuera, salmón fresco, aguacate y salsa especial</div>
+        </div>
+        <div class="menu-item-price">~8€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Roll Tempura Gambas<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">Gambas en tempura crujiente, pepino, aguacate y salsa mayo picante</div>
+        </div>
+        <div class="menu-item-price">~9€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Nigiri (8 uds)<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">Arroz prensado con láminas de pescado fresco sobre wasabi</div>
+        </div>
+        <div class="menu-item-price">~10€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Roll Especial Chiguito<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">La creación estrella del chef. Ingredientes sorpresa del día</div>
+        </div>
+        <div class="menu-item-price">~11€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Sashimi (10 uds)<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">Cortes finos de salmón noruego y atún premium. Con jengibre y wasabi</div>
+        </div>
+        <div class="menu-item-price">~13€</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENTRANTES -->
+  <div class="menu-panel" id="panel-entrantes">
+    <div class="menu-intro">
+      <p class="cat-title">Entrantes</p>
+      <p>Perfectos para compartir. Pequeños bocados llenos de sabor asiático.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Rollitos de Marisco<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Rollitos crujientes rellenos de marisco fresco con salsa agridulce</div>
+        </div>
+        <div class="menu-item-price">~6€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Gyozas (6 uds)<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Empanadillas japonesas al vapor o a la plancha. Relleno de cerdo y verduras. También de pato</div>
+        </div>
+        <div class="menu-item-price">~7€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Takoyaki (6 uds)<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Bolitas de masa esponjosa rellenas de pulpo, con salsa takoyaki y bonito seco</div>
+        </div>
+        <div class="menu-item-price">~7€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Edamame<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">Vainas de soja cocidas al vapor con sal marina. Aperitivo japonés clásico</div>
+        </div>
+        <div class="menu-item-price">~4€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Wok de Verduras y Tofu<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Verduras salteadas al wok con tofu firme. Opción vegana. Crujientes y frescas</div>
+        </div>
+        <div class="menu-item-price">~8€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Miso Soup<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">Sopa tradicional japonesa con pasta de miso, tofu, algas wakame y cebollino</div>
+        </div>
+        <div class="menu-item-price">~3€</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RAMEN -->
+  <div class="menu-panel" id="panel-ramen">
+    <div class="menu-intro">
+      <p class="cat-title">Ramen</p>
+      <p>Caldos cocinados a fuego lento durante horas. El plato estrella de Chiguito, reconocido por nuestros clientes.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Ramen Miso<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Caldo de hueso de cerdo y pollo, pasta miso, chashu, huevo de corral, algas y bambú marinado</div>
+        </div>
+        <div class="menu-item-price">~11€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Ramen Tonkotsu<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">Caldo cremoso de hueso de cerdo, chashu de ternera, maíz, cebolleta y sésamo tostado</div>
+        </div>
+        <div class="menu-item-price">~11€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Ramen de Pato<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Caldo intenso con pato marinado, vegetales de temporada, bambú y algas</div>
+        </div>
+        <div class="menu-item-price">~13€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Ramen Curry<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Base de caldo con pasta de curry japonés, leche de coco, pollo y verduras</div>
+        </div>
+        <div class="menu-item-price">~12€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Ramen Vegano<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">Caldo de verduras con setas shiitake, tofu, bambú, algas y huevo ramen vegano</div>
+        </div>
+        <div class="menu-item-price">~10€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Ramen Spicy Picante<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">Para los valientes. Pasta de chile, chashu, germinados, kimchi y aceite de sésamo</div>
+        </div>
+        <div class="menu-item-price">~12€</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WOK -->
+  <div class="menu-panel" id="panel-wok">
+    <div class="menu-intro">
+      <p class="cat-title">Wok · Arroces · Noodles</p>
+      <p>Platos salteados al wok a fuego vivo y arroces aromáticos.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Yakisoba de Pollo Teriyaki<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Fideos yakisoba salteados con pollo braseado al teriyaki y verduras crujientes</div>
+        </div>
+        <div class="menu-item-price">~10€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Yakisoba de Curry<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Fideos con salsa de curry japonés, vegetales y proteína a elegir</div>
+        </div>
+        <div class="menu-item-price">~10€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Don de Pollo<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Cuenco de arroz japonés con pollo glaseado al teriyaki, huevo y cebolleta</div>
+        </div>
+        <div class="menu-item-price">~9€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Udon Salteado<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">Gruesos fideos udon con salsa tentsuyu, gambas y vegetales al wok</div>
+        </div>
+        <div class="menu-item-price">~11€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Arroz Frito Tres Delicias<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">Arroz salteado con huevo, zanahoria, guisantes y jamón o gambas</div>
+        </div>
+        <div class="menu-item-price">~8€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Pad Thai<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">Fideos de arroz estilo tailandés, gambas, tofu, cacahuetes y lima fresca</div>
+        </div>
+        <div class="menu-item-price">~11€</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POKE -->
+  <div class="menu-panel" id="panel-poke">
+    <div class="menu-intro">
+      <p class="cat-title">Poke Bowls</p>
+      <p>Cuencos frescos y coloridos con base de arroz, proteína premium y toppings saludables.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Poke Bowl Salmón Noruego<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Salmón noruego fresco, arroz de sushi, edamame, aguacate, pepino y salsa ponzu</div>
+        </div>
+        <div class="menu-item-price">~12€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Poke Bowl Atún<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Atún premium marinado, mango, cebolla morada, zanahoria y mayonesa wasabi</div>
+        </div>
+        <div class="menu-item-price">~13€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Poke Bowl Pez Mantequilla<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Pez mantequilla, piña fresca, pepino, edamame y salsa teriyaki dulce</div>
+        </div>
+        <div class="menu-item-price">~13€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Poke Bowl Mixto<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Combinación de salmón y atún con toppings de temporada</div>
+        </div>
+        <div class="menu-item-price">~14€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Poke Bowl Vegano<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">Tofu marinado, mango, aguacate, zanahoria, sésamo y salsa tamari</div>
+        </div>
+        <div class="menu-item-price">~10€</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEBIDAS -->
+  <div class="menu-panel" id="panel-bebidas">
+    <div class="menu-intro">
+      <p class="cat-title">Bebidas</p>
+      <p>Desde cervezas artesanales hasta té matcha y sake. El maridaje perfecto para tu experiencia.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Cerveza Artesanal<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Selección de cervezas artesanales locales y japonesas. Kirin, Sapporo disponibles</div>
+        </div>
+        <div class="menu-item-price">~3–4€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Vino de la Casa<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Selección de vinos blancos, tintos y rosados. Maridaje perfecto con sushi</div>
+        </div>
+        <div class="menu-item-price">~2.50€ copa</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Té Verde Japonés<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">Té sencha o matcha. Caliente o frío con hielo</div>
+        </div>
+        <div class="menu-item-price">~2.50€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Sake<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">Sake japonés. Frío o caliente. Junmai o Nigori disponibles</div>
+        </div>
+        <div class="menu-item-price">~4€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Refrescos / Agua<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">Coca-Cola, Fanta, agua mineral con y sin gas, zumos naturales</div>
+        </div>
+        <div class="menu-item-price">~2€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Café & Infusiones<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Café espresso, cortado, con leche. Disponible también infusiones asiáticas</div>
+        </div>
+        <div class="menu-item-price">~1.80€</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POSTRES -->
+  <div class="menu-panel" id="panel-postres">
+    <div class="menu-intro">
+      <p class="cat-title">Postres</p>
+      <p>El dulce final. Sabores asiáticos con un toque de creatividad.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Mochi (3 uds)<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Bolitas de arroz glutinoso rellenas de helado. Sabores: té verde, fresa y mango</div>
+        </div>
+        <div class="menu-item-price">~5€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Dorayaki<span class="badge-real">Confirmado</span></div>
+          <div class="menu-item-desc">Bizcochitos japoneses rellenos de pasta de azuki. El postre favorito de Doraemon</div>
+        </div>
+        <div class="menu-item-price">~4€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Helado de Té Matcha<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">Helado artesanal de matcha japonés con virutas de chocolate negro</div>
+        </div>
+        <div class="menu-item-price">~4€</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-left">
+          <div class="menu-item-name">Tempura de Helado<span class="badge-est">Estimado</span></div>
+          <div class="menu-item-desc">Bola de helado de vainilla rebozada en tempura frita. Caliente por fuera, frío por dentro</div>
+        </div>
+        <div class="menu-item-price">~5€</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-legend reveal">
+    <span><span class="badge-real">CONFIRMADO</span> Verificado en reseñas de clientes reales</span>
+    <span><span class="badge-est">ESTIMADO</span> Propuesta basada en el estilo del restaurante · Verificar disponibilidad</span>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+<section id="specials">
+  <div class="section-header reveal">
+    <span class="section-tag">Lo más pedido</span>
+    <h2 class="section-title">Nuestras <em>Especialidades</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="specials-grid">
+    <div class="special-card reveal">
+      <span class="special-emoji">🍣</span>
+      <h3 class="special-name">Sushi</h3>
+      <p class="special-desc">Elaborado al momento con pescado fresco del día. Creatividad japonesa con toque valenciano.</p>
+    </div>
+    <div class="special-card reveal">
+      <span class="special-emoji">🍜</span>
+      <h3 class="special-name">Ramen</h3>
+      <p class="special-desc">Caldo cocinado durante horas. Nuestro Ramen Miso y el de Pato son los favoritos absolutos de los clientes.</p>
+    </div>
+    <div class="special-card reveal">
+      <span class="special-emoji">🥟</span>
+      <h3 class="special-name">Gyozas de Pato</h3>
+      <p class="special-desc">Empanadillas japonesas con relleno de pato marinado. Crujientes por fuera, jugosas por dentro.</p>
+    </div>
+    <div class="special-card reveal">
+      <span class="special-emoji">🥗</span>
+      <h3 class="special-name">Poke Bowl</h3>
+      <p class="special-desc">Salmón noruego, atún o pez mantequilla. Coloridos, frescos y saludables.</p>
+    </div>
+    <div class="special-card reveal">
+      <span class="special-emoji">🍱</span>
+      <h3 class="special-name">Don de Pollo</h3>
+      <p class="special-desc">El plato más reconfortante. Pollo teriyaki sobre arroz japonés con huevo y cebolleta.</p>
+    </div>
+    <div class="special-card reveal">
+      <span class="special-emoji">🍡</span>
+      <h3 class="special-name">Mochis</h3>
+      <p class="special-desc">El postre perfecto para cerrar. Helado en masa de arroz glutinoso. Un capricho ineludible.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO / HORARIO -->
+<section id="contacto">
+  <div class="contact-col reveal">
+    <span class="contact-label">営業時間 · Horario</span>
+    <h2 class="contact-title">Cuándo visitarnos</h2>
+    <div class="hours-table">
+      <div class="hours-row">
+        <span class="hours-day">Lunes</span>
+        <span class="hours-closed">Cerrado</span>
+      </div>
+      <div class="hours-row">
+        <span class="hours-day">Martes</span>
+        <span class="hours-time">12:30–16:00 · 19:30–23:00</span>
+      </div>
+      <div class="hours-row">
+        <span class="hours-day">Miércoles</span>
+        <span class="hours-time">12:30–16:00 · 19:30–23:00</span>
+      </div>
+      <div class="hours-row">
+        <span class="hours-day">Jueves</span>
+        <span class="hours-time">13:30–16:00 · 19:30–23:00</span>
+      </div>
+      <div class="hours-row">
+        <span class="hours-day">Viernes</span>
+        <span class="hours-time">12:30–16:30 · 19:30–23:30</span>
+      </div>
+      <div class="hours-row">
+        <span class="hours-day">Sábado</span>
+        <span class="hours-time">11:30–16:30 · 19:30–23:30</span>
+      </div>
+      <div class="hours-row">
+        <span class="hours-day">Domingo</span>
+        <span class="hours-time">12:30–16:30 · 19:30–23:30</span>
+      </div>
+    </div>
+  </div>
+  <div class="contact-col reveal">
+    <span class="contact-label">連絡先 · Contacto</span>
+    <h2 class="contact-title">Cómo encontrarnos</h2>
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-item-icon">📍</div>
+        <div class="contact-item-text">
+          <small>Dirección</small>
+          <a href="https://maps.google.com/maps?cid=6510423986752210187" target="_blank">
+            Av. d'Aureli Guaita Martorell, 13<br>46220 Picassent, Valencia
+          </a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">📞</div>
+        <div class="contact-item-text">
+          <small>Teléfono / Reservas</small>
+          <a href="tel:+34677159860">+34 677 159 860</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">💬</div>
+        <div class="contact-item-text">
+          <small>WhatsApp · Pedidos a domicilio</small>
+          <a href="https://wa.me/34677159860?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" style="color:rgba(37,211,102,0.9)">
+            Pedir por WhatsApp →
+          </a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">📸</div>
+        <div class="contact-item-text">
+          <small>Instagram</small>
+          <a href="https://www.instagram.com/chiguitopicassent" target="_blank">@chiguitopicassent</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">🚗</div>
+        <div class="contact-item-text">
+          <small>Aparcamiento</small>
+          <p>Zona con aparcamiento cercano. Terraza disponible en verano para dejar el coche en vado</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section id="instagram">
+  <div class="section-header reveal">
+    <span class="section-tag">@chiguitopicassent</span>
+    <h2 class="section-title">Síguenos en <em>Instagram</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="ig-grid reveal">
+    <div class="ig-placeholder" onclick="window.open('https://www.instagram.com/chiguitopicassent','_blank')">
+      <span class="k">食</span><small>Ver post</small>
+    </div>
+    <div class="ig-placeholder" onclick="window.open('https://www.instagram.com/chiguitopicassent','_blank')">
+      <span class="k">麺</span><small>Ver post</small>
+    </div>
+    <div class="ig-placeholder" onclick="window.open('https://www.instagram.com/chiguitopicassent','_blank')">
+      <span class="k">寿</span><small>Ver post</small>
+    </div>
+    <div class="ig-placeholder" onclick="window.open('https://www.instagram.com/chiguitopicassent','_blank')">
+      <span class="k">司</span><small>Ver post</small>
+    </div>
+  </div>
+  <a href="https://www.instagram.com/chiguitopicassent" target="_blank" class="ig-follow-btn">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    Seguir en Instagram
+  </a>
+</section>
+
+<!-- SEO TEXT -->
+<section id="seo" style="padding:60px 5%; text-align:center;">
+  <p>Restaurante de <strong>cocina asiática en Picassent</strong>, Valencia. Especialistas en <strong>sushi fresco</strong>, <strong>ramen auténtico</strong>, yakisoba, gyozas y poke bowls. Opciones veganas y vegetarianas disponibles. Terraza exterior, servicio a domicilio y para llevar. Calificación <strong>4.6 ⭐ en Google Maps</strong>. Abierto de martes a domingo — cerrado los lunes.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo">CHIGU<span>ITO</span></span>
+      <p>Cocina asiática de calidad en el corazón de Picassent, Valencia. Sabores auténticos, ambiente acogedor y pasión por cada plato.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Carta</h4>
+      <ul>
+        <li><a href="#menu" onclick="switchTabByName('sushi')">Sushi</a></li>
+        <li><a href="#menu" onclick="switchTabByName('entrantes')">Entrantes</a></li>
+        <li><a href="#menu" onclick="switchTabByName('ramen')">Ramen</a></li>
+        <li><a href="#menu" onclick="switchTabByName('wok')">Wok & Arroces</a></li>
+        <li><a href="#menu" onclick="switchTabByName('poke')">Poke Bowls</a></li>
+        <li><a href="#menu" onclick="switchTabByName('postres')">Postres</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="tel:+34677159860">+34 677 159 860</a></li>
+        <li><a href="https://wa.me/34677159860" target="_blank">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/chiguitopicassent" target="_blank">Instagram</a></li>
+        <li><a href="https://maps.google.com/maps?cid=6510423986752210187" target="_blank">Google Maps</a></li>
+        <li><a href="#contacto">Horario</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Chiguito · Cocina Asiática · Picassent, Valencia</span>
+    <span>Av. d'Aureli Guaita Martorell, 13 · <a href="tel:+34677159860">677 159 860</a></span>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/34677159860?text=Hola!%20Quiero%20hacer%20un%20pedido%20o%20reserva" 
+   target="_blank" 
+   class="whatsapp-float" 
+   aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+// NAV scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Hamburger
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+function closeMobile() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Menu tabs
+function switchTab(btn, name) {
+  document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-' + name).classList.add('active');
+}
+function switchTabByName(name) {
+  const tabs = document.querySelectorAll('.menu-tab');
+  const panels = document.querySelectorAll('.menu-panel');
+  tabs.forEach(t => t.classList.remove('active'));
+  panels.forEach(p => p.classList.remove('active'));
+  const names = ['sushi','entrantes','ramen','wok','poke','bebidas','postres'];
+  const idx = names.indexOf(name);
+  if (idx >= 0) {
+    tabs[idx].classList.add('active');
+    document.getElementById('panel-' + name).classList.add('active');
+  }
+}
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
